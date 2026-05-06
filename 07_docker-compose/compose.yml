@@ -1,0 +1,38 @@
+services:
+
+  # ── PostgreSQL ──────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: factory-db
+    environment:
+      POSTGRES_DB: factorydb
+      POSTGRES_USER: factory
+      POSTGRES_PASSWORD: factory123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data   # データ永続化
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U factory -d factorydb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ── Spring Boot アプリ ────────────────────────────────────
+  app:
+    build: .
+    container_name: factory-app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/factorydb
+      DB_USER: factory
+      DB_PASS: factory123
+    volumes:
+      - ./output:/app/output                    # CSV 出力をホストにマウント
+    depends_on:
+      db:
+        condition: service_healthy              # DB が準備できてから起動
+
+volumes:
+  postgres_data:

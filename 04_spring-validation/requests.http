@@ -1,0 +1,70 @@
+### 04_spring-validation - API 動作確認用リクエスト集
+### VS Code 拡張「REST Client」をインストールして使用
+### 各リクエストの上にある「Send Request」をクリックするだけ
+
+@baseUrl = http://localhost:8080
+
+###
+# ✅ 正常リクエスト（全項目が有効な値）
+POST {{baseUrl}}/productions
+Content-Type: application/json
+
+{
+  "resultDate": "2026-05-01",
+  "lineCode": "LINE-A",
+  "productCode": "PART-001",
+  "productionQty": 500,
+  "defectQty": 3
+}
+
+###
+# ❌ 異常①: 生産数が 0（1以上でなければNG）
+POST {{baseUrl}}/productions
+Content-Type: application/json
+
+{
+  "resultDate": "2026-05-01",
+  "lineCode": "LINE-A",
+  "productCode": "PART-001",
+  "productionQty": 0,
+  "defectQty": 3
+}
+
+###
+# ❌ 異常②: 必須項目が空（複数エラーが返る）
+POST {{baseUrl}}/productions
+Content-Type: application/json
+
+{
+  "resultDate": null,
+  "lineCode": "",
+  "productCode": "PART-001",
+  "productionQty": 500,
+  "defectQty": 3
+}
+
+###
+# ❌ 異常③: 不良数がマイナス
+POST {{baseUrl}}/productions
+Content-Type: application/json
+
+{
+  "resultDate": "2026-05-01",
+  "lineCode": "LINE-A",
+  "productCode": "PART-001",
+  "productionQty": 100,
+  "defectQty": -1
+}
+
+###
+# ❌ 異常④: 全項目がNG（全エラーが一度に返る）
+POST {{baseUrl}}/productions
+Content-Type: application/json
+
+{
+  "resultDate": null,
+  "lineCode": "",
+  "productCode": "",
+  "productionQty": 0,
+  "defectQty": -5
+}

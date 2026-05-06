@@ -1,0 +1,38 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - button "Menu" [ref=e5] [cursor=pointer]
+    - link [ref=e9] [cursor=pointer]:
+      - /url: https://github.com/spring-io/start.spring.io
+      - img [ref=e11]
+  - generic [ref=e13]:
+    - banner [ref=e14]:
+      - heading [level=1] [ref=e16]:
+        - link [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e19]
+    - separator [ref=e49]
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e55]: Project
+          - generic [ref=e61]: Language
+        - generic [ref=e66]: Spring Boot
+        - generic [ref=e74]:
+          - text: Project Metadata
+          - generic [ref=e76]:
+            - generic [ref=e78]: Group
+            - generic [ref=e81]: Artifact
+            - generic [ref=e84]: Name
+            - generic [ref=e87]: Description
+            - generic [ref=e90]: Package name
+            - generic [ref=e93]: Packaging
+            - generic [ref=e97]: Configuration
+            - generic [ref=e101]: Java
+      - generic [ref=e108]: Dependencies
+  - generic [ref=e116]:
+    - link [ref=e117] [cursor=pointer]:
+      - /url: /
+      - img [ref=e119]
+    - link [ref=e121] [cursor=pointer]:
+      - /url: /
+      - img [ref=e123]

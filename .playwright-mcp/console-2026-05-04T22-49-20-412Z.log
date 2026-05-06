@@ -1,0 +1,18 @@
+[    1221ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://start.spring.io/:0
+[    1250ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/1b2e5afd9ce1b600ff7d.woff2 @ https://start.spring.io/:0
+[    1250ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1252ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/175b10a0f5f889d431d9.woff2 @ https://start.spring.io/:0
+[    1252ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1285ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/d144135dbec55aae9c20.woff @ https://start.spring.io/:0
+[    1285ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1320ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/86e11b337a3c17e05c68.woff2 @ https://start.spring.io/:0
+[    1320ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1352ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/9f3bcaaace1f420162ba.woff @ https://start.spring.io/:0
+[    1352ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1437ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/feff236977a6e26b72a2.woff2 @ https://start.spring.io/:0
+[    1437ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1466ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/713d29b78b23629e3bce.woff @ https://start.spring.io/:0
+[    1466ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1505ms] [WARNING] Failed to decode downloaded font: https://start.spring.io/f1cda4c99bf1686f69e1.woff @ https://start.spring.io/:0
+[    1505ms] [WARNING] OTS parsing error: invalid sfntVersion: 1702391919 @ https://start.spring.io/:0
+[    1510ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ https://start.spring.io/:0
