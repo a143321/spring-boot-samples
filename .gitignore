@@ -35,3 +35,4 @@ build/
 ### VS Code ###
 .vscode/
 .playwright-mcp/
+08_cloud-run/.env

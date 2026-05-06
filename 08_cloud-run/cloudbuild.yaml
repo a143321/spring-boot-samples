@@ -1,0 +1,41 @@
+# Cloud Build 設定
+# GitHub に push するたびに自動でビルド → Artifact Registry → Cloud Run デプロイ
+
+steps:
+  # ステップ1: Docker イメージをビルド
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/factory-app:${SHORT_SHA}'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/factory-app:latest'
+      - '.'
+
+  # ステップ2: Artifact Registry に push
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '--all-tags'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/factory-app'
+
+  # ステップ3: Cloud Run にデプロイ
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'factory-app'
+      - '--image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/factory-app:${SHORT_SHA}'
+      - '--region=${_REGION}'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--set-env-vars=DB_URL=${_DB_URL},DB_USER=${_DB_USER},DB_PASS=${_DB_PASS}'
+
+# 変数のデフォルト値（Cloud Build トリガーで上書き可能）
+substitutions:
+  _REGION: asia-northeast1
+  _REPO: factory
+
+options:
+  logging: CLOUD_LOGGING_ONLY
